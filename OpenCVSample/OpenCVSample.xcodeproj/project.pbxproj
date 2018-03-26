@@ -1,0 +1,591 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		671C6A2B2069063700EB2A97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671C6A2A2069063700EB2A97 /* AppDelegate.swift */; };
+		671C6A2D2069063700EB2A97 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671C6A2C2069063700EB2A97 /* ViewController.swift */; };
+		671C6A302069063700EB2A97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 671C6A2E2069063700EB2A97 /* Main.storyboard */; };
+		671C6A322069063700EB2A97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 671C6A312069063700EB2A97 /* Assets.xcassets */; };
+		671C6A352069063700EB2A97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 671C6A332069063700EB2A97 /* LaunchScreen.storyboard */; };
+		671C6A402069063700EB2A97 /* OpenCVSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671C6A3F2069063700EB2A97 /* OpenCVSampleTests.swift */; };
+		671C6A4B2069063700EB2A97 /* OpenCVSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671C6A4A2069063700EB2A97 /* OpenCVSampleUITests.swift */; };
+		671C6A5A206906A100EB2A97 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 671C6A59206906A100EB2A97 /* opencv2.framework */; };
+		671C6A5E2069070300EB2A97 /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 671C6A5D2069070300EB2A97 /* OpenCVWrapper.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		671C6A3C2069063700EB2A97 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 671C6A1F2069063700EB2A97 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 671C6A262069063700EB2A97;
+			remoteInfo = OpenCVSample;
+		};
+		671C6A472069063700EB2A97 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 671C6A1F2069063700EB2A97 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 671C6A262069063700EB2A97;
+			remoteInfo = OpenCVSample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		671C6A272069063700EB2A97 /* OpenCVSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenCVSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		671C6A2A2069063700EB2A97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		671C6A2C2069063700EB2A97 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		671C6A2F2069063700EB2A97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		671C6A312069063700EB2A97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		671C6A342069063700EB2A97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		671C6A362069063700EB2A97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		671C6A3B2069063700EB2A97 /* OpenCVSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenCVSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		671C6A3F2069063700EB2A97 /* OpenCVSampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCVSampleTests.swift; sourceTree = "<group>"; };
+		671C6A412069063700EB2A97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		671C6A462069063700EB2A97 /* OpenCVSampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenCVSampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		671C6A4A2069063700EB2A97 /* OpenCVSampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCVSampleUITests.swift; sourceTree = "<group>"; };
+		671C6A4C2069063700EB2A97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		671C6A59206906A100EB2A97 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		671C6A5B2069070300EB2A97 /* OpenCVSample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OpenCVSample-Bridging-Header.h"; sourceTree = "<group>"; };
+		671C6A5C2069070300EB2A97 /* OpenCVWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVWrapper.h; sourceTree = "<group>"; };
+		671C6A5D2069070300EB2A97 /* OpenCVWrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVWrapper.mm; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		671C6A242069063700EB2A97 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				671C6A5A206906A100EB2A97 /* opencv2.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		671C6A382069063700EB2A97 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		671C6A432069063700EB2A97 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		671C6A1E2069063700EB2A97 = {
+			isa = PBXGroup;
+			children = (
+				671C6A292069063700EB2A97 /* OpenCVSample */,
+				671C6A3E2069063700EB2A97 /* OpenCVSampleTests */,
+				671C6A492069063700EB2A97 /* OpenCVSampleUITests */,
+				671C6A282069063700EB2A97 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		671C6A282069063700EB2A97 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				671C6A272069063700EB2A97 /* OpenCVSample.app */,
+				671C6A3B2069063700EB2A97 /* OpenCVSampleTests.xctest */,
+				671C6A462069063700EB2A97 /* OpenCVSampleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		671C6A292069063700EB2A97 /* OpenCVSample */ = {
+			isa = PBXGroup;
+			children = (
+				671C6A582069066900EB2A97 /* Framework */,
+				671C6A2A2069063700EB2A97 /* AppDelegate.swift */,
+				671C6A2C2069063700EB2A97 /* ViewController.swift */,
+				671C6A2E2069063700EB2A97 /* Main.storyboard */,
+				671C6A312069063700EB2A97 /* Assets.xcassets */,
+				671C6A332069063700EB2A97 /* LaunchScreen.storyboard */,
+				671C6A362069063700EB2A97 /* Info.plist */,
+				671C6A5C2069070300EB2A97 /* OpenCVWrapper.h */,
+				671C6A5D2069070300EB2A97 /* OpenCVWrapper.mm */,
+				671C6A5B2069070300EB2A97 /* OpenCVSample-Bridging-Header.h */,
+			);
+			path = OpenCVSample;
+			sourceTree = "<group>";
+		};
+		671C6A3E2069063700EB2A97 /* OpenCVSampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				671C6A3F2069063700EB2A97 /* OpenCVSampleTests.swift */,
+				671C6A412069063700EB2A97 /* Info.plist */,
+			);
+			path = OpenCVSampleTests;
+			sourceTree = "<group>";
+		};
+		671C6A492069063700EB2A97 /* OpenCVSampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				671C6A4A2069063700EB2A97 /* OpenCVSampleUITests.swift */,
+				671C6A4C2069063700EB2A97 /* Info.plist */,
+			);
+			path = OpenCVSampleUITests;
+			sourceTree = "<group>";
+		};
+		671C6A582069066900EB2A97 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				671C6A59206906A100EB2A97 /* opencv2.framework */,
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		671C6A262069063700EB2A97 /* OpenCVSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 671C6A4F2069063700EB2A97 /* Build configuration list for PBXNativeTarget "OpenCVSample" */;
+			buildPhases = (
+				671C6A232069063700EB2A97 /* Sources */,
+				671C6A242069063700EB2A97 /* Frameworks */,
+				671C6A252069063700EB2A97 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OpenCVSample;
+			productName = OpenCVSample;
+			productReference = 671C6A272069063700EB2A97 /* OpenCVSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		671C6A3A2069063700EB2A97 /* OpenCVSampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 671C6A522069063700EB2A97 /* Build configuration list for PBXNativeTarget "OpenCVSampleTests" */;
+			buildPhases = (
+				671C6A372069063700EB2A97 /* Sources */,
+				671C6A382069063700EB2A97 /* Frameworks */,
+				671C6A392069063700EB2A97 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				671C6A3D2069063700EB2A97 /* PBXTargetDependency */,
+			);
+			name = OpenCVSampleTests;
+			productName = OpenCVSampleTests;
+			productReference = 671C6A3B2069063700EB2A97 /* OpenCVSampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		671C6A452069063700EB2A97 /* OpenCVSampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 671C6A552069063700EB2A97 /* Build configuration list for PBXNativeTarget "OpenCVSampleUITests" */;
+			buildPhases = (
+				671C6A422069063700EB2A97 /* Sources */,
+				671C6A432069063700EB2A97 /* Frameworks */,
+				671C6A442069063700EB2A97 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				671C6A482069063700EB2A97 /* PBXTargetDependency */,
+			);
+			name = OpenCVSampleUITests;
+			productName = OpenCVSampleUITests;
+			productReference = 671C6A462069063700EB2A97 /* OpenCVSampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		671C6A1F2069063700EB2A97 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Nanjundaswamy Sainath";
+				TargetAttributes = {
+					671C6A262069063700EB2A97 = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+					};
+					671C6A3A2069063700EB2A97 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 671C6A262069063700EB2A97;
+					};
+					671C6A452069063700EB2A97 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 671C6A262069063700EB2A97;
+					};
+				};
+			};
+			buildConfigurationList = 671C6A222069063700EB2A97 /* Build configuration list for PBXProject "OpenCVSample" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 671C6A1E2069063700EB2A97;
+			productRefGroup = 671C6A282069063700EB2A97 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				671C6A262069063700EB2A97 /* OpenCVSample */,
+				671C6A3A2069063700EB2A97 /* OpenCVSampleTests */,
+				671C6A452069063700EB2A97 /* OpenCVSampleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		671C6A252069063700EB2A97 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				671C6A352069063700EB2A97 /* LaunchScreen.storyboard in Resources */,
+				671C6A322069063700EB2A97 /* Assets.xcassets in Resources */,
+				671C6A302069063700EB2A97 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		671C6A392069063700EB2A97 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		671C6A442069063700EB2A97 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		671C6A232069063700EB2A97 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				671C6A2D2069063700EB2A97 /* ViewController.swift in Sources */,
+				671C6A2B2069063700EB2A97 /* AppDelegate.swift in Sources */,
+				671C6A5E2069070300EB2A97 /* OpenCVWrapper.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		671C6A372069063700EB2A97 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				671C6A402069063700EB2A97 /* OpenCVSampleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		671C6A422069063700EB2A97 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				671C6A4B2069063700EB2A97 /* OpenCVSampleUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		671C6A3D2069063700EB2A97 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 671C6A262069063700EB2A97 /* OpenCVSample */;
+			targetProxy = 671C6A3C2069063700EB2A97 /* PBXContainerItemProxy */;
+		};
+		671C6A482069063700EB2A97 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 671C6A262069063700EB2A97 /* OpenCVSample */;
+			targetProxy = 671C6A472069063700EB2A97 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		671C6A2E2069063700EB2A97 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				671C6A2F2069063700EB2A97 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		671C6A332069063700EB2A97 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				671C6A342069063700EB2A97 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		671C6A4D2069063700EB2A97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		671C6A4E2069063700EB2A97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		671C6A502069063700EB2A97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OpenCVSample/Framework",
+				);
+				INFOPLIST_FILE = OpenCVSample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nanjunda.test.OpenCVSample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OpenCVSample/OpenCVSample-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		671C6A512069063700EB2A97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OpenCVSample/Framework",
+				);
+				INFOPLIST_FILE = OpenCVSample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nanjunda.test.OpenCVSample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OpenCVSample/OpenCVSample-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		671C6A532069063700EB2A97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = OpenCVSampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nanjunda.test.OpenCVSampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OpenCVSample.app/OpenCVSample";
+			};
+			name = Debug;
+		};
+		671C6A542069063700EB2A97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = OpenCVSampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nanjunda.test.OpenCVSampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OpenCVSample.app/OpenCVSample";
+			};
+			name = Release;
+		};
+		671C6A562069063700EB2A97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = OpenCVSampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nanjunda.test.OpenCVSampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OpenCVSample;
+			};
+			name = Debug;
+		};
+		671C6A572069063700EB2A97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = OpenCVSampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nanjunda.test.OpenCVSampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OpenCVSample;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		671C6A222069063700EB2A97 /* Build configuration list for PBXProject "OpenCVSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				671C6A4D2069063700EB2A97 /* Debug */,
+				671C6A4E2069063700EB2A97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		671C6A4F2069063700EB2A97 /* Build configuration list for PBXNativeTarget "OpenCVSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				671C6A502069063700EB2A97 /* Debug */,
+				671C6A512069063700EB2A97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		671C6A522069063700EB2A97 /* Build configuration list for PBXNativeTarget "OpenCVSampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				671C6A532069063700EB2A97 /* Debug */,
+				671C6A542069063700EB2A97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		671C6A552069063700EB2A97 /* Build configuration list for PBXNativeTarget "OpenCVSampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				671C6A562069063700EB2A97 /* Debug */,
+				671C6A572069063700EB2A97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 671C6A1F2069063700EB2A97 /* Project object */;
+}
