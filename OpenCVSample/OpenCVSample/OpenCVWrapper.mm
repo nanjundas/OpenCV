@@ -11,6 +11,7 @@
 #import "OpenCVWrapper.h"
 
 using namespace std;
+using namespace cv;
 
 @implementation OpenCVWrapper
 

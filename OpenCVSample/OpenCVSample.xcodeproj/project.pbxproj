@@ -23,6 +23,7 @@
 		671C6A6C2069262500EB2A97 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 671C6A6B2069262500EB2A97 /* CoreGraphics.framework */; };
 		671C6A712069266200EB2A97 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 671C6A6F2069263400EB2A97 /* CoreMedia.framework */; };
 		671C6A722069266B00EB2A97 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 671C6A6D2069262D00EB2A97 /* CoreImage.framework */; };
+		67932D17206BAC41002ED5E0 /* ShapeDetector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 673839E9206A8D9F00801334 /* ShapeDetector.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		671C6A6B2069262500EB2A97 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		671C6A6D2069262D00EB2A97 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		671C6A6F2069263400EB2A97 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		673839E8206A8D9F00801334 /* ShapeDetector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShapeDetector.h; sourceTree = "<group>"; };
+		673839E9206A8D9F00801334 /* ShapeDetector.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ShapeDetector.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +173,7 @@
 		671C6A5F206921A700EB2A97 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				673839E7206A8D7B00801334 /* Detector */,
 				671C6A60206921D100EB2A97 /* ViewController */,
 			);
 			path = Classes;
@@ -195,6 +199,15 @@
 				671C6A652069261000EB2A97 /* Accelerate.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		673839E7206A8D7B00801334 /* Detector */ = {
+			isa = PBXGroup;
+			children = (
+				673839E8206A8D9F00801334 /* ShapeDetector.h */,
+				673839E9206A8D9F00801334 /* ShapeDetector.mm */,
+			);
+			path = Detector;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,6 +347,7 @@
 			files = (
 				671C6A2D2069063700EB2A97 /* ViewController.swift in Sources */,
 				671C6A63206921F300EB2A97 /* LiveCameraViewController.mm in Sources */,
+				67932D17206BAC41002ED5E0 /* ShapeDetector.mm in Sources */,
 				671C6A2B2069063700EB2A97 /* AppDelegate.swift in Sources */,
 				671C6A5E2069070300EB2A97 /* OpenCVWrapper.mm in Sources */,
 			);

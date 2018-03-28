@@ -9,6 +9,8 @@
 #import <opencv2/opencv.hpp>
 #import <opencv2/videoio/cap_ios.h>
 
+#import "ShapeDetector.h"
+
 // CvVideoCamera - Needs Apple frameworks(CoreImage/CoreMedia/CoreVideo/AVFoundation....) to be included. Refer documentation.
 
 #import "LiveCameraViewController.h"
@@ -16,6 +18,7 @@
 @interface LiveCameraViewController ()<CvVideoCameraDelegate>
 
 @property (nonatomic, retain) IBOutlet UIImageView *feedImageView;
+@property (nonatomic, retain) IBOutlet UILabel *outputLabel;
 
 @property (nonatomic, assign) BOOL feedRunning;
 @property (nonatomic, retain) CvVideoCamera *camera;
@@ -28,6 +31,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.outputLabel.layer.cornerRadius = 5;
+    self.outputLabel.clipsToBounds = YES;
     
     // Creating CvVideoCamera Object to capture live video
     CvVideoCamera *camera = [[CvVideoCamera alloc] initWithParentView:self.feedImageView];
@@ -91,7 +97,16 @@
 
 - (void)processImage:(cv::Mat&)image {
     
-    NSLog(@"got new image");
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        
+        __block NSString *ret = [ShapeDetector getFormattedShapesForImage:image];
+        if ([ret length]) {
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.outputLabel.text = ret;
+            });
+        }
+    });
 }
 
 
