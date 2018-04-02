@@ -23,13 +23,30 @@ using namespace cv;
 
 @implementation ShapeDetector
 
+
+//(P1L1(x1, y1), P2L1(x2, y2) and P1L1(x1, y1), P2L3(x2, y3))
+float angele(cv::Point P1L1, cv::Point P2L1, cv::Point P1L2, cv::Point P2L2)
+{
+    float dx21 = P2L1.x-P1L2.x;
+    float dx31 = P2L2.x-P1L1.x;
+    float dy21 = P2L1.y-P1L1.y;
+    float dy31 = P2L2.y-P1L1.y;
+    float m12 = sqrt( dx21*dx21 + dy21*dy21 );
+    float m13 = sqrt( dx31*dx31 + dy31*dy31 );
+    float theta = acos( (dx21*dx31 + dy21*dy31) / (m12 * m13) );
+    
+    return theta;
+}
+
 std::vector<int> findRects(cv::Mat &src)
 {
     std::vector<int> retVal;
     cv::Mat src_gray;
     
-    cvtColor( src, src_gray, CV_BGR2GRAY );
-    blur( src_gray, src_gray, cv::Size(3,3) );
+    if (src.empty())
+        return retVal;
+
+    cvtColor( src, src_gray, CV_BGR2GRAY);
     
     cv::Mat bw;
     cv::Canny(src_gray, bw, 0, 50, 5);
@@ -51,6 +68,23 @@ std::vector<int> findRects(cv::Mat &src)
             continue;
         
         if (approx.size() == 3){
+            
+            int vtc = (int)approx.size();
+
+            std::vector<float> angles;
+            
+            angles.push_back(angele(approx[0], approx[1], approx[0], approx[2]));
+            angles.push_back(angele(approx[0], approx[1], approx[1], approx[2]));
+            angles.push_back(angele(approx[1], approx[2], approx[2], approx[1]));
+            
+            std::sort(angles.begin(), angles.end());
+            
+            for (int j = 0; j < vtc; j++) {
+                printf("%f ", angles[j]);
+            }
+                
+            printf("\n");
+            
             tris++;
         }
         else if (approx.size() == 4){

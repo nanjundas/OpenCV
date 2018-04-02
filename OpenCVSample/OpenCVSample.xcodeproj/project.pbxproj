@@ -23,6 +23,7 @@
 		671C6A6C2069262500EB2A97 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 671C6A6B2069262500EB2A97 /* CoreGraphics.framework */; };
 		671C6A712069266200EB2A97 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 671C6A6F2069263400EB2A97 /* CoreMedia.framework */; };
 		671C6A722069266B00EB2A97 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 671C6A6D2069262D00EB2A97 /* CoreImage.framework */; };
+		67582DFA20712A6F00A6C1BF /* CameraFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 67582DF920712A6F00A6C1BF /* CameraFeed.m */; };
 		67932D17206BAC41002ED5E0 /* ShapeDetector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 673839E9206A8D9F00801334 /* ShapeDetector.mm */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,8 @@
 		671C6A6F2069263400EB2A97 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		673839E8206A8D9F00801334 /* ShapeDetector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShapeDetector.h; sourceTree = "<group>"; };
 		673839E9206A8D9F00801334 /* ShapeDetector.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ShapeDetector.mm; sourceTree = "<group>"; };
+		67582DF820712A6F00A6C1BF /* CameraFeed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraFeed.h; sourceTree = "<group>"; };
+		67582DF920712A6F00A6C1BF /* CameraFeed.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraFeed.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +187,8 @@
 			children = (
 				671C6A61206921F300EB2A97 /* LiveCameraViewController.h */,
 				671C6A62206921F300EB2A97 /* LiveCameraViewController.mm */,
+				67582DF820712A6F00A6C1BF /* CameraFeed.h */,
+				67582DF920712A6F00A6C1BF /* CameraFeed.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -345,6 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67582DFA20712A6F00A6C1BF /* CameraFeed.m in Sources */,
 				671C6A2D2069063700EB2A97 /* ViewController.swift in Sources */,
 				671C6A63206921F300EB2A97 /* LiveCameraViewController.mm in Sources */,
 				67932D17206BAC41002ED5E0 /* ShapeDetector.mm in Sources */,
