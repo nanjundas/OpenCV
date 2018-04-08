@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+
+#import "CameraPreview.h"
 
 //TODO - Make this a common class to switch between OpenCV Camera and CameraFeed Camera
 
@@ -18,12 +21,23 @@
 - (void)start;
 - (void)stop;
 
-- (void)setQuality:(NSString *)quality;
+// TODO - Add more options;
+- (void)setQuality:(AVCaptureSessionPreset)quality;
 
+@end
+
+@protocol CameraFeedDelegate<NSObject>
+
+- (void)didOutputImage:(cv::Mat&)image;
+    
 @end
 
 @interface CameraFeed : NSObject<CameraFeed>
 
+@property(nonatomic, weak) id<CameraFeedDelegate> delegate;
+
 @property(nonatomic, retain, readonly) AVCaptureSession *session;
+
+@property(nonatomic, retain) CameraPreview *previewView;
 
 @end

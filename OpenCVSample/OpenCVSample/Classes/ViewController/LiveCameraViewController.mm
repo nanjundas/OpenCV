@@ -14,14 +14,19 @@
 // CvVideoCamera - Needs Apple frameworks(CoreImage/CoreMedia/CoreVideo/AVFoundation....) to be included. Refer documentation.
 
 #import "LiveCameraViewController.h"
+#import "CameraFeed.h"
+#import "CameraPreview.h"
 
 @interface LiveCameraViewController ()<CvVideoCameraDelegate>
 
-@property (nonatomic, retain) IBOutlet UIImageView *feedImageView;
+@property (nonatomic, retain) IBOutlet CameraPreview *feedImageView;
 @property (nonatomic, retain) IBOutlet UILabel *outputLabel;
 
 @property (nonatomic, assign) BOOL feedRunning;
+
+// Add UI options to switch camera;
 @property (nonatomic, retain) CvVideoCamera *camera;
+@property (nonatomic, retain) CameraFeed *customCamera;
 
 - (IBAction)onBarbuttonClicked:(id)sender;
 
@@ -44,6 +49,12 @@
     camera.delegate = self;
     
     self.camera = camera;
+
+    CameraFeed *customCamera = [[CameraFeed alloc] init];
+    customCamera.previewView = self.feedImageView;
+    [customCamera setupCamera];
+    
+    self.customCamera = customCamera;
 
 #if !(TARGET_IPHONE_SIMULATOR)
     // Pause/Resume Recording when app enters BG/FG
