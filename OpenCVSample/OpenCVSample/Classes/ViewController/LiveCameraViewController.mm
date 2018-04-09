@@ -17,7 +17,7 @@
 #import "CameraFeed.h"
 #import "CameraPreview.h"
 
-@interface LiveCameraViewController ()<CvVideoCameraDelegate>
+@interface LiveCameraViewController ()<CvVideoCameraDelegate, CameraFeedDelegate>
 
 @property (nonatomic, retain) IBOutlet CameraPreview *feedImageView;
 @property (nonatomic, retain) IBOutlet UILabel *outputLabel;
@@ -41,17 +41,18 @@
     self.outputLabel.clipsToBounds = YES;
     
     // Creating CvVideoCamera Object to capture live video
-    CvVideoCamera *camera = [[CvVideoCamera alloc] initWithParentView:self.feedImageView];
+    /*CvVideoCamera *camera = [[CvVideoCamera alloc] initWithParentView:self.feedImageView];
     camera.defaultAVCaptureDevicePosition = AVCaptureDevicePositionBack;
     camera.defaultAVCaptureSessionPreset = AVCaptureSessionPresetHigh;
     camera.defaultAVCaptureVideoOrientation = AVCaptureVideoOrientationPortrait;
     camera.rotateVideo = YES; // Handles orientation
     camera.delegate = self;
     
-    self.camera = camera;
+    self.camera = camera;*/
 
     CameraFeed *customCamera = [[CameraFeed alloc] init];
     customCamera.previewView = self.feedImageView;
+    customCamera.delegate = self;
     [customCamera setupCamera];
     
     self.customCamera = customCamera;
@@ -87,6 +88,8 @@
     
     self.feedRunning ? [self.camera stop] : [self.camera start];
     
+    self.feedRunning ? [self.customCamera stop] : [self.customCamera start];
+    
     self.feedRunning = !self.feedRunning;
 }
 
@@ -120,6 +123,21 @@
     });
 }
 
+#pragma mark - CameraFeedDelegate
+
+- (void)didOutputImage:(cv::Mat&)image {
+    
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        
+        __block NSString *ret = [ShapeDetector getFormattedShapesForImage:image];
+        if ([ret length]) {
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.outputLabel.text = ret;
+            });
+        }
+    });
+}
 
 #pragma mark - IBAction
 

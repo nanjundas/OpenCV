@@ -27,20 +27,14 @@
 
 @implementation CameraFeed
 
-- (void)createSession {
- 
-    self.sessionQueue = dispatch_queue_create( "SessionQueue", DISPATCH_QUEUE_SERIAL );
-    
-    AVCaptureSession *session = [[AVCaptureSession alloc] init];
-    session.sessionPreset = AVCaptureSessionPresetPhoto;
-    
-    self.session = session;
-}
-
 - (void)setupCamera
 {
 #if !(TARGET_IPHONE_SIMULATOR)
  
+    if(!self.sessionQueue){
+        self.sessionQueue = dispatch_queue_create( "SessionQueue", DISPATCH_QUEUE_SERIAL );
+    }
+    
     if (!self.session){
         self.session = [[AVCaptureSession alloc] init];
     }
@@ -50,7 +44,12 @@
     self.session.sessionPreset = AVCaptureSessionPresetPhoto;
 
     // Back dual Camera
-    AVCaptureDevice *videoDevice = [AVCaptureDevice defaultDeviceWithDeviceType:AVCaptureDeviceTypeBuiltInDualCamera mediaType:AVMediaTypeVideo position:AVCaptureDevicePositionBack];
+    
+    AVCaptureDevice *videoDevice = nil;
+    if (@available(iOS 10_2, *)) {
+        videoDevice = [AVCaptureDevice defaultDeviceWithDeviceType:AVCaptureDeviceTypeBuiltInDualCamera mediaType:AVMediaTypeVideo position:AVCaptureDevicePositionBack];
+    }
+    
     if ( ! videoDevice ) {
 
         // Back
@@ -63,22 +62,35 @@
     }
     
     NSError *error = nil;
-    AVCaptureDeviceInput *videoDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:videoDevice error:&error];
-    if ( videoDeviceInput ) {
+    
+    if (!self.videoDeviceInput) {
+        self.videoDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:videoDevice error:&error];
         
-        if ( [self.session canAddInput:videoDeviceInput] ) {
+        if ( self.videoDeviceInput ) {
             
-            [self.session addInput:videoDeviceInput];
-            
-            self.videoDeviceInput = videoDeviceInput;
+            if ( [self.session canAddInput:self.videoDeviceInput] ) {
+                [self.session addInput:self.videoDeviceInput];
+            }
+            else {
+                NSLog( @"Camera Setup failed: %@", error );
+            }
         }
         else {
             NSLog( @"Camera Setup failed: %@", error );
         }
     }
-    else {
-        NSLog( @"Camera Setup failed: %@", error );
-    }
+    
+    // Add Capture Output to read the image data
+    AVCaptureVideoDataOutput *captureOutput = [[AVCaptureVideoDataOutput alloc] init] ;
+    [captureOutput setSampleBufferDelegate:self queue:self.sessionQueue];
+    captureOutput.alwaysDiscardsLateVideoFrames = YES;
+    
+    NSString* key = (NSString*)kCVPixelBufferPixelFormatTypeKey;
+    NSNumber* value = [NSNumber numberWithUnsignedInt:kCVPixelFormatType_32BGRA];
+    NSDictionary* videoSettings = [NSDictionary dictionaryWithObject:value forKey:key];
+    [captureOutput setVideoSettings:videoSettings];
+    
+    [self.session addOutput:captureOutput];
     
     [self.session commitConfiguration];
     
@@ -101,17 +113,6 @@
                                              selector:@selector(didEnterFG:)
                                                  name:UIApplicationWillEnterForegroundNotification
                                                object:nil];
-    
-    // Add Capture Output to read the image data
-    AVCaptureVideoDataOutput *captureOutput = [[AVCaptureVideoDataOutput alloc] init] ;
-    [captureOutput setSampleBufferDelegate:self queue:self.sessionQueue];
-    captureOutput.alwaysDiscardsLateVideoFrames = YES;
-    captureOutput.sampleBufferDelegate = self;
-    NSString* key = (NSString*)kCVPixelBufferPixelFormatTypeKey;
-    NSNumber* value = [NSNumber numberWithUnsignedInt:kCVPixelFormatType_32BGRA];
-    NSDictionary* videoSettings = [NSDictionary dictionaryWithObject:value forKey:key];
-    [captureOutput setVideoSettings:videoSettings];
-    
 #endif
     
 }
@@ -134,7 +135,7 @@
 #endif
 }
 
-- (void)deviceOrientationDidChange:(NSNotification*)notification {
+- (void)orientationChanged:(NSNotification*)notification {
     
     UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;
     
