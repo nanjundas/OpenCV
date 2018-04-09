@@ -44,7 +44,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3mh-Ad-kkL">
-                                <rect key="frame" x="34" y="572" width="306" height="22"/>
+                                <rect key="frame" x="34" y="536" width="306" height="22"/>
                                 <color key="backgroundColor" white="1" alpha="0.703950264084507" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="JLE-Tm-8HY"/>
@@ -61,7 +61,7 @@
                             <constraint firstItem="nri-Ng-vcH" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="50l-eI-l4n"/>
                             <constraint firstItem="ual-Y1-iX6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5JV-PA-BOs"/>
                             <constraint firstItem="Jz3-OB-l15" firstAttribute="centerY" secondItem="ZkP-b5-DZc" secondAttribute="centerY" id="5fx-UL-Tqh"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3mh-Ad-kkL" secondAttribute="bottom" constant="9" id="9sN-UL-3wO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3mh-Ad-kkL" secondAttribute="bottom" constant="45" id="9sN-UL-3wO"/>
                             <constraint firstItem="Jz3-OB-l15" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="JSi-56-C1l"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Jz3-OB-l15" secondAttribute="trailingMargin" id="OXh-1n-kpb"/>
                             <constraint firstItem="ZkP-b5-DZc" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Q3E-iL-FXY"/>

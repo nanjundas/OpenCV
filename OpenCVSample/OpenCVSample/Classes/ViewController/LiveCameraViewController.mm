@@ -40,24 +40,33 @@
     self.outputLabel.layer.cornerRadius = 5;
     self.outputLabel.clipsToBounds = YES;
     
-    // Creating CvVideoCamera Object to capture live video
-    /*CvVideoCamera *camera = [[CvVideoCamera alloc] initWithParentView:self.feedImageView];
-    camera.defaultAVCaptureDevicePosition = AVCaptureDevicePositionBack;
-    camera.defaultAVCaptureSessionPreset = AVCaptureSessionPresetHigh;
-    camera.defaultAVCaptureVideoOrientation = AVCaptureVideoOrientationPortrait;
-    camera.rotateVideo = YES; // Handles orientation
-    camera.delegate = self;
-    
-    self.camera = camera;*/
-
-    CameraFeed *customCamera = [[CameraFeed alloc] init];
-    customCamera.previewView = self.feedImageView;
-    customCamera.delegate = self;
-    [customCamera setupCamera];
-    
-    self.customCamera = customCamera;
+    //TODO: Give an option in UI.
+    //Change this to switch between cameras.
+    BOOL useCVCamera = YES;
+    if (useCVCamera) {
+        
+        // Creating CvVideoCamera Object to capture live video
+        CvVideoCamera *camera = [[CvVideoCamera alloc] initWithParentView:self.feedImageView];
+        camera.defaultAVCaptureDevicePosition = AVCaptureDevicePositionBack;
+        camera.defaultAVCaptureSessionPreset = AVCaptureSessionPresetHigh;
+        camera.defaultAVCaptureVideoOrientation = AVCaptureVideoOrientationPortrait;
+        camera.rotateVideo = YES; // Handles orientation
+        camera.delegate = self;
+        
+        self.camera = camera;
+    }
+    else {
+        
+        CameraFeed *customCamera = [[CameraFeed alloc] init];
+        customCamera.previewView = self.feedImageView;
+        customCamera.delegate = self;
+        [customCamera setupCamera];
+        
+        self.customCamera = customCamera;
+    }
 
 #if !(TARGET_IPHONE_SIMULATOR)
+    
     // Pause/Resume Recording when app enters BG/FG
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(didEnterBG:)
@@ -87,7 +96,6 @@
 - (void)toggleFeed {
     
     self.feedRunning ? [self.camera stop] : [self.camera start];
-    
     self.feedRunning ? [self.customCamera stop] : [self.customCamera start];
     
     self.feedRunning = !self.feedRunning;
@@ -97,6 +105,7 @@
     
     if (self.feedRunning) {
         [self.camera stop];
+        [self.customCamera stop];
     }
 }
 
@@ -104,6 +113,7 @@
     
     if (self.feedRunning) {
         [self.camera start];
+        [self.customCamera start];
     }
 }
 
@@ -129,13 +139,18 @@
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
-        __block NSString *ret = [ShapeDetector getFormattedShapesForImage:image];
-        if ([ret length]) {
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.outputLabel.text = ret;
-            });
-        }
+        try {
+            __block NSString *ret = [ShapeDetector getFormattedShapesForImage:image];
+            if ([ret length]) {
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.outputLabel.text = ret;
+                });
+            }
+        } catch (id exception) {
+            NSLog(@"exception - %@", exception);
+        }        
+
     });
 }
 

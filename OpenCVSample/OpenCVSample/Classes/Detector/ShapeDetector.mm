@@ -117,7 +117,9 @@ std::vector<int> findRects(cv::Mat &src)
     NSMutableString *retString = [NSMutableString string];
     std::vector<int> ret = findRects(image);
     
-    [retString appendFormat:@"Triangles - %d Rectangles - %d Circles - %d", ret[0], ret[1], ret[2]];
+    if (ret.size() > 0) {
+        [retString appendFormat:@"Triangles - %d Rectangles - %d Circles - %d", ret[0], ret[1], ret[2]];
+    }
     
     return retString;
 }
