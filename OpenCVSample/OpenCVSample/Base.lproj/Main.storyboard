@@ -35,7 +35,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ual-Y1-iX6">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ual-Y1-iX6">
                                 <rect key="frame" x="0.0" y="57" width="375" height="546"/>
                                 <color key="backgroundColor" red="0.87468076610000001" green="0.9420621991" blue="0.46540835180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>

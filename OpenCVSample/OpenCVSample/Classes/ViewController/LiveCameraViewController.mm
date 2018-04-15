@@ -9,6 +9,8 @@
 #import <opencv2/opencv.hpp>
 #import <opencv2/videoio/cap_ios.h>
 
+static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;}
+
 #import "ShapeDetector.h"
 
 // CvVideoCamera - Needs Apple frameworks(CoreImage/CoreMedia/CoreVideo/AVFoundation....) to be included. Refer documentation.
@@ -59,6 +61,9 @@
         
         CameraFeed *customCamera = [[CameraFeed alloc] init];
         customCamera.previewView = self.feedImageView;
+        
+        customCamera.previewView.previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+        
         customCamera.delegate = self;
         [customCamera setupCamera];
         
@@ -78,6 +83,15 @@
                                                  name:UIApplicationWillEnterForegroundNotification
                                                object:nil];
 #endif
+}
+
+- (void)viewDidLayoutSubviews {
+    
+    [super viewDidLayoutSubviews];
+    
+    if (self.customCamera != nil){
+       // self.customCamera.previewView.previewLayer.frame = self.feedImageView.bounds;
+    }
 }
 
 - (void)dealloc {
@@ -121,6 +135,8 @@
 
 - (void)processImage:(cv::Mat&)image {
     
+    return;
+    
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
         __block NSString *ret = [ShapeDetector getFormattedShapesForImage:image];
@@ -152,6 +168,25 @@
         }        
 
     });
+}
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator {
+    
+    int angle = 0;
+    
+    UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;
+    switch (orientation)
+    {
+        case UIDeviceOrientationPortrait: angle = 0; break;
+        case UIDeviceOrientationPortraitUpsideDown:  angle = 180; break;
+        case UIDeviceOrientationLandscapeLeft:  angle = 270; break;
+        case UIDeviceOrientationLandscapeRight:  angle = 90; break;
+        default:
+            break;
+    }
+
+    self.customCamera.previewView.previewLayer.affineTransform = CGAffineTransformIdentity;
+    self.customCamera.previewView.previewLayer.affineTransform = CGAffineTransformMakeRotation(DegreesToRadians(angle));
 }
 
 #pragma mark - IBAction
