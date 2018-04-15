@@ -44,7 +44,7 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;}
     
     //TODO: Give an option in UI.
     //Change this to switch between cameras.
-    BOOL useCVCamera = YES;
+    BOOL useCVCamera = NO;
     if (useCVCamera) {
         
         // Creating CvVideoCamera Object to capture live video
@@ -153,21 +153,17 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;}
 
 - (void)didOutputImage:(cv::Mat&)image {
     
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        
-        try {
-            __block NSString *ret = [ShapeDetector getFormattedShapesForImage:image];
-            if ([ret length]) {
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    self.outputLabel.text = ret;
-                });
-            }
-        } catch (id exception) {
-            NSLog(@"exception - %@", exception);
-        }        
-
-    });
+    try {
+        __block NSString *ret = [ShapeDetector getFormattedShapesForImage:image];
+        if ([ret length]) {
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.outputLabel.text = ret;
+            });
+        }
+    } catch (id exception) {
+        NSLog(@"exception - %@", exception);
+    }
 }
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator {

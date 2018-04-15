@@ -61,6 +61,7 @@
         }
     }
     
+    
     NSError *error = nil;
     
     if (!self.videoDeviceInput) {
@@ -249,10 +250,8 @@
             [self.delegate didOutputImage:matImage];
         }
         
-        CGImageRelease(newImage);
         CVPixelBufferUnlockBaseAddress(imageBuffer,0);
     }
-
 }
 
 @end
