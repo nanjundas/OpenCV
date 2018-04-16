@@ -106,6 +106,9 @@ std::vector<int> findRects(cv::Mat &src)
     retVal.push_back(rects);
     retVal.push_back(circles);
     
+    bw.release();
+    src_gray.release();
+    
     return retVal;
 }
 

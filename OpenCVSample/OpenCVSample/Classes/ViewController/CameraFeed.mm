@@ -240,8 +240,7 @@
                 break;
         }
         
-        UIImage *cameraImage = nil;
-        cameraImage= [UIImage imageWithCGImage:newImage scale:1 orientation:imageOrientation];
+        UIImage *cameraImage = [[UIImage alloc] initWithCGImage:newImage scale:1 orientation:imageOrientation];
         
         cv::Mat matImage;
         UIImageToMat(cameraImage, matImage);
@@ -250,6 +249,11 @@
             [self.delegate didOutputImage:matImage];
         }
         
+        matImage.release();
+        
+        free(baseAddress);
+        
+        CGImageRelease(newImage);
         CVPixelBufferUnlockBaseAddress(imageBuffer,0);
     }
 }
